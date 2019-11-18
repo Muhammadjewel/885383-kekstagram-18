@@ -24,7 +24,7 @@
 
     for (var i = 0; i < commentsCount; i++) {
       comments.push({
-        avatar: 'img/avatar-' + i + '.svg',
+        avatar: 'img/avatar-' + (i + 1) + '.svg',
         message: MOCK.messages[getRandomNumber(0, MOCK.messages.length - 1)],
         name: MOCK.names[getRandomNumber(0, MOCK.names.length - 1)]
       });
@@ -33,12 +33,12 @@
     return comments;
   };
 
-  var generateData = function (count) {
+  window.generateData = function (count) {
     var data = [];
 
     for (var i = 0; i < count; i++) {
       data.push({
-        url: 'photos/' + i + '.jpg',
+        url: 'photos/' + (i + 1) + '.jpg',
         description: 'description',
         likes: getRandomNumber(15, 200),
         comments: generateComments()
