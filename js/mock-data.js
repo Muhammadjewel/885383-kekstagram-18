@@ -18,16 +18,19 @@
     return Math.floor(Math.random() * (maxValue - minValue + 1));
   };
 
-  var getRandomMessage = function () {
-    return MOCK_MESSAGES[getRandomNumber(0, MOCK_MESSAGES.length - 1)];
-  };
+  var generateComments = function () {
+    var comments = [];
+    var commentsCount = getRandomNumber(1, 6);
 
-  var generateComments = function (count) {
-    return {
-      avatar: ,
-      message: ,
-      name:
-    };
+    for (var i = 0; i < commentsCount; i++) {
+      comments.push({
+        avatar: 'img/avatar-' + i + '.svg',
+        message: MOCK.messages[getRandomNumber(0, MOCK.messages.length - 1)],
+        name: MOCK.names[getRandomNumber(0, MOCK.names.length - 1)]
+      });
+    }
+
+    return comments;
   };
 
   var generateData = function (count) {
@@ -38,12 +41,10 @@
         url: 'photos/' + i + '.jpg',
         description: 'description',
         likes: getRandomNumber(15, 200),
-        comments: ''
+        comments: generateComments()
       });
     }
 
     return data;
   };
-
-  console.log(getRandomMessage());
 })();
